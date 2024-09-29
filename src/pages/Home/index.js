@@ -16,7 +16,6 @@ const Page = () => {
   const {data} = useData();
 
   const sortedEvent = data?.events?.slice().sort((a, b) => new Date(b.date) - new Date(a.date)) || [];
-  
   const last = sortedEvent[0] || null;
 
   return <>
