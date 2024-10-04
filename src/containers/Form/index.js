@@ -17,7 +17,7 @@ const Form = ({ onSuccess, onError }) => {
         await mockContactApi();
         setSending(false);
 
-        onSuccess(); // ouverture de la modal apres envoi formulaire
+        onSuccess(); // ouverture de la modal apres envoi du formulaire
 
       } catch (err) {
         setSending(false);
