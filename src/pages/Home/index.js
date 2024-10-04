@@ -13,9 +13,14 @@ import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
+
+  // data
   const {data} = useData();
 
+  // tri evenements par date décroisante
   const sortedEvent = data?.events?.slice().sort((a, b) => new Date(b.date) - new Date(a.date)) || [];
+
+  // recupere dernier element apres tri
   const last = sortedEvent[0] || null;
 
   return <>
@@ -26,7 +31,7 @@ const Page = () => {
       <section className="SliderContainer">
         <Slider />
       </section>
-      <section className="ServicesContainer" id="nos-services">
+      <section className="ServicesContainer" id="nos-services"> {/* rajout de id nos services */}
         <h2 className="Title">Nos services</h2>
         <p>Nous organisons des événements sur mesure partout dans le monde</p>
         <div className="ListContainer">
@@ -55,11 +60,11 @@ const Page = () => {
           </ServiceCard>
         </div>
       </section>
-      <section className="EventsContainer" id="nos-realisations">
+      <section className="EventsContainer" id="nos-realisations"> {/* rajout de id nos relisations */}
         <h2 className="Title">Nos réalisations</h2>
         <EventList />
       </section>
-      <section className="PeoplesContainer" id="notre-equipe">
+      <section className="PeoplesContainer" id="notre-equipe"> {/* rajout de id notre equipe */}
         <h2 className="Title">Notre équipe</h2>
         <p>Une équipe d’experts dédiés à l’ogranisation de vos événements</p>
         <div className="ListContainer">
@@ -95,7 +100,7 @@ const Page = () => {
           />
         </div>
       </section>
-      <div className="FormContainer" id="contact">
+      <div className="FormContainer" id="contact"> {/* rajout de id contact */}
         <h2 className="Title">Contact</h2>
         <Modal
           Content={

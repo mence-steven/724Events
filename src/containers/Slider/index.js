@@ -7,7 +7,7 @@ import "./style.scss";
 const Slider = () => {
   const { data } = useData();
   const [index, setIndex] = useState(0);
-
+//
   const byDateDesc = data?.focus.sort((evtA, evtB) =>
     new Date(evtA.date) < new Date(evtB.date) ? -1 : 1
   ) || [];
@@ -24,7 +24,7 @@ const Slider = () => {
   const handleDotChange = (dotIdx) => {
     setIndex(dotIdx);
   };
-
+//
   return (
     <div className="SlideCardList">
       {byDateDesc.map((event, idx) => (        
