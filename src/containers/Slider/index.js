@@ -7,22 +7,23 @@ import "./style.scss";
 const Slider = () => {
   const { data } = useData();
   const [index, setIndex] = useState(0);
-//
+// tri evenements pas date decroisante
   const byDateDesc = data?.focus.sort((evtA, evtB) =>
     new Date(evtA.date) < new Date(evtB.date) ? -1 : 1
-  ) || [];
+  ) || []; // data null utilise un tableau vide
 
+  // focntion passer slide suivant
   const nextCard = () => {
     setIndex((prevIndex) => (prevIndex + 1) % byDateDesc.length);
-  };
+  }; // retourne a zero quand arrrive a la fin
 
   useEffect(() => {
-    const timer = setTimeout(nextCard, 5000);
-    return () => clearTimeout(timer);
+    const timer = setTimeout(nextCard, 5000); // change de slide toutes les 5s
+    return () => clearTimeout(timer); // reinitialiser le temps a 0
   }, [index, byDateDesc.length]);
 
   const handleDotChange = (dotIdx) => {
-    setIndex(dotIdx);
+    setIndex(dotIdx); // mettre a jour slide avec dots
   };
 //
   return (
