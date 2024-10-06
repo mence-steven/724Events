@@ -15,8 +15,8 @@ const EventList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const filteredEvents = (
     (!type
-      ? data?.events
-      : data?.events.filter((event) => event.type === type)) || []
+      ? data?.events // Selectionner toutes les categorie si rien n'est charger
+      : data?.events.filter((event) => event.type === type)) || [] // si catégorie choisi, filtre pas celui ci
   ).filter((event, index) => {
     if (
       (currentPage - 1) * PER_PAGE <= index &&
